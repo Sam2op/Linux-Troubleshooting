@@ -146,8 +146,8 @@ journalctl -u ssh                       # Service-specific logs
 # 👨‍💻 Author
 
 **Mohammed Sami Nadaf**  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?logo=linkedin)](https://linkedin.com/in/yourprofile)  
-📧 **Email:** your.email@example.com  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?logo=linkedin)](https://www.linkedin.com/in/mohammed-sami-nadaf-0b81a91b8)  
+📧 **Email:** samilesnarnadaf7@gmail.com  
 
 **Skills:** Linux | System Administration | DevOps Fundamentals | Troubleshooting | Shell Scripting
 
