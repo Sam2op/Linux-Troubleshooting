@@ -112,7 +112,7 @@ journalctl -u ssh                       # Service-specific logs
 
 ---
 
-## 📚 Key Learnings
+# 📚 Key Learnings
 
 ✅ Linux system performance monitoring using native tools  
 ✅ End-to-end incident detection and response workflow  
@@ -120,7 +120,7 @@ journalctl -u ssh                       # Service-specific logs
 ✅ Production-style troubleshooting and validation techniques  
 ✅ Importance of proactive monitoring and preventive measures  
 
-## 🛡️ Preventive Measures
+# 🛡️ Preventive Measures
 
 - Implement system monitoring alerts for CPU, memory, and disk thresholds
 - Define and enforce resource usage limits per process/user
@@ -128,14 +128,14 @@ journalctl -u ssh                       # Service-specific logs
 - Schedule regular disk clean-up and log vacuuming
 - Use cron jobs for periodic health checks
 
-## 📄 Resume Highlights
+# 📄 Resume Highlights
 
 - Simulated Linux production incidents and performed root cause analysis using system logs and monitoring tools
 - Analyzed CPU, memory, and disk utilization using Linux performance commands (`top`, `vmstat`, `df`, `journalctl`)
 - Documented incident resolution steps following production incident workflows
 - Gained hands-on experience in system administration and incident response
 
-## 🚀 Future Improvements
+# 🚀 Future Improvements
 
 - Integrate monitoring tools like Prometheus + Grafana or Nagios
 - Automate alerting using shell scripts and cron jobs
@@ -143,11 +143,11 @@ journalctl -u ssh                       # Service-specific logs
 - Containerize the simulation environment using Docker for reproducibility
 - Implement centralized logging with rsyslog or Loki
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Mohammed Sami Nadaf**  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?logo=linkedin)](https://www.linkedin.com/in/mohammed-sami-nadaf-0b81a91b8)  
-📧 **Email:** samilesnarnadaf7@gmail.com  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?logo=linkedin)](https://linkedin.com/in/yourprofile)  
+📧 **Email:** your.email@example.com  
 
 **Skills:** Linux | System Administration | DevOps Fundamentals | Troubleshooting | Shell Scripting
 
