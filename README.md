@@ -109,7 +109,7 @@ System logs were analyzed using `journalctl` to identify errors and confirm inci
 journalctl -xe                          # View recent logs with details
 journalctl --since "10 minutes ago"     # Time-based filtering
 journalctl -u ssh                       # Service-specific logs
-
+```
 ---
 
 # 📚 Key Learnings
