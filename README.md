@@ -122,7 +122,7 @@ This hands-on project simulates real-world **Linux production incidents** to dem
 | **Simulation** | `sudo chmod 600 /opt/secure.txt` and `sudo chown root:root /opt/secure.txt` |
 | **Detection** | `ls -l /opt/secure.txt`, `id sami`, `namei -l /opt/secure.txt`          |
 | **Root Cause** | File ownership and permissions restricted to root only                  |
-| **Resolution** | `sudo chown sami:sami /opt/secure.txt`                                  |
+| **Resolution** | `sudo chmod 644 /opt/secure.txt`                                  |
 | **Validation** | `cat /opt/secure.txt` executes successfully as user sami                |
 
 ---
