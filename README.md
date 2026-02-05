@@ -154,13 +154,6 @@ journalctl -u ssh                       # Service-specific logs
 - Schedule regular disk clean-up and log vacuuming
 - Use cron jobs for periodic health checks
 
-# 📄 Resume Highlights
-
-- Simulated Linux production incidents and performed root cause analysis using system logs and monitoring tools
-- Analyzed CPU, memory, and disk utilization using Linux performance commands (`top`, `vmstat`, `df`, `journalctl`)
-- Documented incident resolution steps following production incident workflows
-- Gained hands-on experience in system administration and incident response
-
 # 🚀 Future Improvements
 
 - Integrate monitoring tools like Prometheus + Grafana or Nagios
