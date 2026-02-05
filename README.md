@@ -21,6 +21,8 @@ This hands-on project simulates real-world **Linux production incidents** to dem
   - [High CPU Utilization](#-incident-1-high-cpu-utilization)
   - [Server Not Reachable](#-incident-2-high-memory-usage)
   - [Disk Space Exhaustion](#-incident-3-disk-space-exhaustion)
+  - [Account Locked](#-incident-4-user-unable-to-login-(account-locked))
+  - [File Permission Denied](#-incident-2-file-permission-denied)
 - [Log Analysis](#📋-log-analysis)
 - [Key Learnings](#📚-key-learnings)
 - [Preventive Measures](#🛡️-preventive-measures)
@@ -98,6 +100,30 @@ This hands-on project simulates real-world **Linux production incidents** to dem
 | **Log Analysis** | `journalctl --disk-usage`                                               |
 | **Resolution**   | `rm bigfile` and `journalctl --vacuum-time=2d`                          |
 | **Validation**   | `df -h` confirmed disk space recovered                                  |
+
+### 🚨 Incident 4: User Unable to Login (Account Locked)
+
+| Aspect           | Details                                                                 |
+|------------------|-------------------------------------------------------------------------|
+| **Symptoms** | Valid user receives "Permission denied" or "Account locked" during SSH  |
+| **Simulation** | `sudo passwd -l sami`                                                   |
+| **Detection** | `passwd -S sami`, `faillog -u sami`, `journalctl -u ssh`                |
+| **Root Cause** | User account status marked as "L" (Locked) in shadow password file      |
+| **Resolution** | `sudo passwd -u sami`                                                   |
+| **Validation** | `passwd -S sami` shows "P" (Password set) and user successfully logs in |
+
+---
+
+### 🚨 Incident 5: File Permission Denied
+
+| Aspect           | Details                                                                 |
+|------------------|-------------------------------------------------------------------------|
+| **Symptoms** | User receives "Permission denied" error when reading or executing a file |
+| **Simulation** | `sudo chmod 600 /opt/secure.txt` and `sudo chown root:root /opt/secure.txt` |
+| **Detection** | `ls -l /opt/secure.txt`, `id sami`, `namei -l /opt/secure.txt`          |
+| **Root Cause** | File ownership and permissions restricted to root only                  |
+| **Resolution** | `sudo chown sami:sami /opt/secure.txt`                                  |
+| **Validation** | `cat /opt/secure.txt` executes successfully as user sami                |
 
 ---
 
