@@ -19,7 +19,7 @@ This hands-on project simulates real-world **Linux production incidents** to dem
 - [Tools & Commands](#🛠️-tools--commands-used)
 - [Incident Simulations](#🔴-incident-simulations)
   - [High CPU Utilization](#-incident-1-high-cpu-utilization)
-  - [High Memory Usage](#-incident-2-high-memory-usage)
+  - [Server Not Reachable](#-incident-2-high-memory-usage)
   - [Disk Space Exhaustion](#-incident-3-disk-space-exhaustion)
 - [Log Analysis](#📋-log-analysis)
 - [Key Learnings](#📚-key-learnings)
@@ -56,11 +56,11 @@ This hands-on project simulates real-world **Linux production incidents** to dem
 | Category       | Tools/Commands                                          |
 |----------------|---------------------------------------------------------|
 | **CPU Monitoring**  | `top`, `htop`, `uptime`, `ps`                          |
-| **Memory Monitoring** | `free`, `vmstat`, `htop`                               |
+| **Memory Monitoring** | `free`, `htop`                               |
 | **Disk Monitoring**  | `df`, `du`, `journalctl --disk-usage`                  |
 | **Log Analysis**    | `journalctl -xe`, `journalctl --since`, `journalctl -u`|
 | **Stress Tools**    | `stress`, `fallocate`                                  |
-| **Resolution**      | `pkill`, `sync`, `rm`, `echo 3 > /proc/sys/vm/drop_caches` |
+| **Resolution**      | `pkill`, `rm` |
 
 ---
 
@@ -77,16 +77,16 @@ This hands-on project simulates real-world **Linux production incidents** to dem
 | **Resolution**   | `pkill stress`                                                          |
 | **Validation**   | `uptime` showed load average returning to normal                        |
 
-### 🚨 Incident 2: High Memory Usage
+### 🚨 Incident 2: User Cannot SSH
 
 | Aspect           | Details                                                                 |
 |------------------|-------------------------------------------------------------------------|
-| **Symptoms**     | Low available memory, performance degradation, swap usage increase      |
-| **Simulation**   | `stress --vm 2 --vm-bytes 1G --timeout 300`                             |
-| **Detection**    | `free -h`, `htop`, `vmstat 2`                                           |
-| **Root Cause**   | Stress processes consuming excessive memory                             |
-| **Resolution**   | `pkill stress` followed by `sync && echo 3 | sudo tee /proc/sys/vm/drop_caches` |
-| **Validation**   | `free -h` showed memory returning to baseline                           |
+| **Symptoms**     | Client tries to SSH, but gets result saying "Connection Refused"        |
+| **Simulation**   | `ufw delete allow 22`                                                   |
+| **Detection**    | `ss -tulpn`, `systemctl status ssh`, `ufw status`                       |
+| **Root Cause**   | Port 22 is listening, but it is not allowed by UFW                      |
+| **Resolution**   | `ufw allow 22`, allows default ssh port                                 |
+| **Validation**   | `ssh user@IP` ,client successfully logs in to the server                |
 
 ### 🚨 Incident 3: Disk Space Exhaustion
 
